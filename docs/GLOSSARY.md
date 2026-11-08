@@ -1,0 +1,21 @@
+# Glossário
+
+- **NPC record:** personagem persistente no domínio; não é sinônimo de entidade carregada.
+- **Entidade física:** representação temporária no motor Horizon.
+- **Genesis:** criação inicial idempotente da cabana e trio em cada mundo.
+- **Fixture:** configuração repetível de três personagens e suas relações para teste.
+- **LOD de simulação:** níveis de fidelidade da inteligência segundo interesse, não apenas distância gráfica.
+- **Materialização:** converter estado abstrato persistente em entidades/efeitos físicos verificáveis.
+- **Reconciliação:** conferir estado mod/world antes de aplicar efeitos físicos pendentes.
+- **Utility AI:** pontuação de objetivos por necessidades, contexto e riscos.
+- **GOAP:** planejamento por pré-condições e efeitos de ações.
+- **HTN:** decomposição de objetivos em tarefas menores.
+- **Behavior Tree:** execução e reação com estados de comportamento.
+- **Job Broker:** mecanismo de anúncio, prioridade, reserva e atribuição de tarefas.
+- **Conhecimento parcial:** NPC age sobre fatos percebidos e crenças, não onisciência.
+- **OperationId:** identificador que protege contra aplicar ação duas vezes.
+- **V1_ESPECIFICADA:** lógica revisada e testável como especificação; código não necessariamente existe.
+- **IMPLEMENTADA_PENDENTE_INTEGRACAO:** código/módulo existe e passou seus testes isolados, mas não foi comprovado no Horizon.
+- **MCP:** protocolo de ferramentas de agente; sua eventual utilização no Horizon **ainda não foi decidida**.
+- **`.hnmod`:** bundle de código Rust/mixins para build nativo do Horizon desktop; não é um plugin Java.
+- **`.hmod`:** pacote de conteúdo do Horizon desktop; o Starling também anuncia variantes sandboxed, cuja compatibilidade com `.hnmod` não deve ser presumida.
