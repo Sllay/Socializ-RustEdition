@@ -11,14 +11,23 @@
 ## Matriz
 | Ambiente | Classificação | Critério |
 |---|---|---|
-| PC Horizon single-player | Alvo inicial, **não testado no projeto** | Compilar, abrir mundo e validar ações |
-| Mods `.hnmod` nativos | Documentados, integração própria pendente | Auditoria de hooks + build |
+| Horizon Android single-player | **Ambiente real do usuário**, execução de `.hnmod` não validada | Identificar app, revisão, carregamento de código nativo e controles |
+| Mods `.hnmod` nativos (Horizon desktop) | Documentados; **não supor funcionamento no APK móvel** | Auditar port instalado e alternativa de execução |
 | Horizon CLI `horizon-ctl` | Documentado, **não escolhido** | Revisar comandos e segurança |
-| MCP Horizon | Documentado oficialmente, **EM ESTUDO / NÃO CONECTAR AINDA** | Decisão em conjunto + prova no executor |
+| MCP Horizon | **Socket local privado no Android identificado**; cloud não o acessa por path. **EM ESTUDO / NÃO CONECTAR AINDA** | Diagnóstico de permissões + desenho de bridge e autorização |
 | Horizon headless | Possibilidade documentada, uso ainda não decidido | Confirmar flags/limitações |
-| Android Starling `.hnmod` | Bloqueado no APK padrão | Novo binário/port e teste real |
+| Android Starling `.hnmod` | Não suportado diretamente no APK padrão segundo documentação consultada; confirmar se o app `dev.horizon.android` corresponde à mesma distribuição | Auditoria de port/versionamento e runtime nativo |
 | Android Starling `.hmod` sandbox | Documentação anuncia suporte em builds 64-bit | Não equivale a suporte `.hnmod` |
 | Servidor/LAN/multiplayer | Congelado | Não desenvolver nesta fase |
+
+## Topologia real de desenvolvimento
+
+- **Dispositivo do usuário:** Android com Horizon (`dev.horizon.android`) e Termux; nenhum PC local disponível.
+- **Codex:** executor cloud separado do Android; comandos stdio/caminhos de socket executados em cloud não alcançam o celular.
+- **Caminho reportado pelo jogo:** `/data/user/0/dev.horizon.android/cache/horizon-control.sock`; pertence à sandbox privada do app. `/system/bin/horizon-ctl` é apenas um caminho que a interface informa e deve ser verificado localmente, sem assumir que existe.
+- **Primeiro teste permitido:** inspeção não destrutiva no Termux, sem root/ADB/circunvenções de sandbox. Se houver `Permission denied`, interromper tentativa de acesso ao socket.
+- **Futuro remoto, em pesquisa:** bridge *autorizado e embutido no app*, ou mecanismo de acesso explicitamente exportado pelo port, seguido de transporte autenticado de saída para um serviço remoto e suporte de cliente MCP no executor. Túnel Termux sozinho não rompe sandbox do Android.
+- **Plano independente:** compilar e testar o núcleo Rust no Codex Cloud; avaliação de runtime headless na cloud é opcional e não substitui teste Android.
 
 ## Android e UI
 Desenhar interfaces com alvos de toque adequados, escala adaptativa, navegação de teclado, foco explícito e balões de texto com filtros de frequência. Isso **não** comprova portabilidade. O suporte oficial às fontes/hook/clientes Android precisa ser auditado no momento oportuno.
