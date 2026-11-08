@@ -3,7 +3,7 @@
 ## V1 — EM_REFINAMENTO
 
 ### Alvo atual vs futuro
-O primeiro runtime é PC Horizon offline. **Planejar** layout adaptável a toque e controle sem clique direito, mas não declarar Android compatível até mod nativo funcionar lá.
+O único dispositivo do usuário é Android com Horizon instalado, mas o suporte `.hnmod` dessa build ainda não foi demonstrado. Priorizar **interface para toque** e testes isolados na cloud; compatibilidade PC é secundária e não substitui validação real no Android.
 
 ### Estados de interface
 `NONE`: gameplay normal. `HOVER`: nome curto e indicador social se próximo e visível. `CONVERSATION`: painel de diálogo e escolhas derivadas do estado. `TRADE/TASK`: tela específica para troca ou compromisso. `CLOSED`: restaura input do jogo. Escapar, afastar-se ou ataque pode interromper conforme regra social.
