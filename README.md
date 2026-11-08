@@ -21,10 +21,10 @@ Os NPCs não reaparecem a cada abertura. Personagens mortos, migrados ou ausente
 
 ## Decisões e limites
 
-- **Escopo atual:** single-player offline, inicialmente PC.
+- **Escopo atual:** single-player offline no **Horizon Android do usuário**; Termux é o ambiente local disponível, e Codex executa **na nuvem**. Testes do núcleo Rust em cloud são prioritários, mas não equivalem a rodar o mod no Android.
 - **Fora de escopo por enquanto:** servidores dedicados, LAN, multiplayer e hospedagem.
-- **Android:** objetivo de compatibilidade; o port Starling não oferece, no APK padrão atual, suporte direto a `.hnmod`. Nenhum suporte mobile está concluído.
-- **Horizon MCP:** **EM ESTUDO / NÃO DECIDIDO**. Investigar comandos, permissões e automação sem configurar, integrar, fechar arquitetura ou criar MCP próprio sem decisão posterior.
+- **Android:** é o dispositivo de uso real, não um alvo secundário. O APK instalado precisa ser identificado pela versão e capacidade de carregar código nativo; não presumir suporte a `.hnmod` no Starling/port específico. Não existe integração runtime mobile validada.
+- **Horizon MCP:** **EM ESTUDO / NÃO DECIDIDO**. O app mostra socket local privado `/data/user/0/dev.horizon.android/cache/horizon-control.sock` e comando `/system/bin/horizon-ctl`; essa configuração não conecta diretamente ao Codex Cloud nem concede permissões ao Termux. Ver [pesquisa de conexão](docs/OPERATIONS/MCP_RESEARCH.md). Não instalar, configurar ou abrir bridge sem decisão posterior.
 - **Horizon:** usar revisão exata auditada e mixins nativos; não substituir essa verificação por suposições.
 - **Segurança:** nunca alterar saves reais do usuário nos testes; proteger estruturas, recursos e privacidade.
 
