@@ -1,6 +1,6 @@
 # Prompt para Codex — Fase 0, auditoria (usar somente quando o usuário autorizar execução)
 
-Você está no repositório `Sllay/Socializ-RustEdition`, um projeto em fase de documentação. **Objetivo exclusivo: verificar a viabilidade de um mod offline Rust do Horizon e produzir relatório técnico. Não implementar NPCs ou mexer em saves reais.**
+Você está no repositório `Sllay/Socializ-RustEdition`, um projeto em fase de documentação. **Objetivo exclusivo: verificar a viabilidade de um mod offline Rust no Horizon Android do usuário e produzir relatório técnico. O usuário só possui Android/Termux; Codex executa em cloud, sem acesso físico direto ao aparelho. Não implementar NPCs ou mexer em saves reais.**
 
 Leia `AGENTS.md`, `docs/DECISIONS.md`, `docs/ROADMAP.md`, `docs/TOOLS_AND_COMPATIBILITY.md`, `docs/ARCHITECTURE.md`, `docs/IDEAS/COLONIA_INICIAL.md` e `docs/TESTING.md`. Não varra outros documentos sem necessidade.
 
